@@ -258,7 +258,7 @@ class TestSuite:
 
 
     def _run_perf_test(self, tree):
-        scales = [10000, 100000, 300000, 1000000, 3000000]
+        scales = [10000, 100000, 300000, 1000000, 3000000, 10000000]
         trials = 2
         
         scores_insert = []
@@ -336,7 +336,7 @@ class TestSuite:
         axes[1, 1].grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.show()
+        plt.savefig("red_black.png", dpi=300) if isinstance(tree(), Tree) else plt.savefig("BST.png", dpi=300)
 
 
 
@@ -353,6 +353,3 @@ if __name__ == "__main__":
     
     tests = TestSuite(Tree)
     tests.performance_eval()
-
-    #print(sys.getsizeof(Tree))
-    #print(sys.getsizeof(Node))
